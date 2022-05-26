@@ -11,11 +11,16 @@ const Form = () => {
     });
 
     const handleChange = (e) => {
-        let {type,name,value,checked} = e.target;
+        let {type,name,value,checked,files} = e.target;
         if(type === "checkbox"){
           setForm({
             ...form,
             [name]:checked,
+        });
+        }else if (type === "file"){
+          setForm({
+            ...form,
+            [name]:files,
         });
         }
         else{
@@ -27,15 +32,20 @@ const Form = () => {
        
     };
 
-    useEffect(() => {
-        console.log(form)
-    },[form])
+    const handleOnSubmit = (e) => {
+      e.preventDefault();
+      console.log(form);
+    }
+
+    // useEffect(() => {
+    //     console.log(form)
+    // },[form])
  
   return (
     <div className={styles.display}>
       <h1>Form</h1>
 
-      <form id="inputForm"  >
+      <form id="inputForm"  onSubmit={handleOnSubmit}>
         <label className={styles.formSpace}>
           <h3>Username :</h3> 
           <input 
@@ -80,32 +90,41 @@ const Form = () => {
           onChange={handleChange} 
           value = {form.age} required />
         </label>
+        
         <input 
         type="checkbox" 
         name="isIndian" 
         checked ={form.isIndian} 
         onChange = {handleChange}/>
         <label><h2>Is Indian :</h2> </label>
-        <br />
- 
-        {/* <label>
-          Department
-          <select name="dept"  required>
-            <option value="HR">HR</option>
-            <option value="IT">IT</option>
-            <option value="OP">Operations</option>
-            <option value="S&M">Sales & Marketing</option>
-          </select>
-        </label> */}
-        {/* <br /> */}
 
-
-        {/* <label>
-          Married
-          <input type="checkbox" name="marry"  />
-        </label> */}
-        {/* <br /> */}
-        <input type="submit" id="btn" value="Submit" />
+      <div>
+        <input
+        type="radio"
+        name="gender"
+        value="Male" 
+        onChange={handleChange}
+        />
+        <label>Male </label>
+        </div>
+        <div>
+        <input
+        type="radio"
+        name="gender"
+        value="Female" 
+        onChange={handleChange}
+        />
+        <label>Female </label>
+        </div>
+        <input
+        type="file"
+        name = "file"
+        files= {form.resume}
+        accept = "image/JPEG image/PNG application/pdf"
+        onChange = {handleChange}
+        />
+        <br/>
+        <input type="submit" id="btn" value="Submit"  />
       </form>
     </div>
   );
