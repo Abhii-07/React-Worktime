@@ -1,0 +1,15 @@
+.display{
+    text-align: center;
+    width: 30%;
+    margin: auto;
+    /* border: 1px solid red; */
+}
+.formSpace{
+    display: flex;
+    justify-content: space-between;
+}
+
+.inputTag{
+    width:70%;
+    height: 40px;
+}
