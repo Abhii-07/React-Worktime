@@ -164,6 +164,11 @@
       "value": "React New",
       "isCompleted": false,
       "id": 33
+    },
+    {
+      "value": "Task",
+      "isCompleted": false,
+      "id": 34
     }
   ]
 }

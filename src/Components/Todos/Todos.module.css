@@ -1,3 +1,43 @@
 .display{
     text-align: center;
 }
+
+.taskBox{
+    border: 1px solid grey;
+    border-left: 0px;
+    border-right: 0px ;
+    width: 40%;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.task{
+    border: 1px solid grey;
+    border-left: 0px;
+    border-right: 0px ;
+    padding: 5px;
+    font-size: 35px;
+}
+
+.pagination{
+    margin-top: 10px;
+}
+
+.inputBar{
+    padding: 10px;
+
+}
+
+.addBtn{
+    padding: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.limitInput{
+    padding: 12px;
+    font-weight: bold;
+    font-size: 25px;
+}

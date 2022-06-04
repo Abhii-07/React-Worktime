@@ -57,23 +57,24 @@ function Todos() {
 
   return (
     <div className={styles.display} >
-      <h1>Hello</h1>
-      <input placeholder='Add Task..' className='input-bar' value={newTodo} onChange={handleChange}/>
-      <button onClick={saveInfo}>+</button>
-      <div>
+      <h1>Todo App</h1>
+      <input placeholder='Add Task..' className={styles.inputBar} value={newTodo} onChange={handleChange}/>
+      <button onClick={saveInfo} className={styles.addBtn}>Save</button>
+      <div className={styles.taskBox}>
         {todos.map(todo => (
-          <div key={todo.id}>
+          <div key={todo.id} className={styles.task}>
             {todo.value}
             {/* <button onClick={editInfo}>Edit</button>
             <button onClick={deleteInfo}>X</button> */}
           </div>
         ))}
       </div>
-
+      <div className={styles.pagination}>
       <button 
+      className={styles.addBtn}
       disabled={page <= 1}
       onClick={()=> {setPage(page-1);}}> - </button>
-      <select onChange={(e) => setLimit(e.target.value)}>
+      <select className={styles.limitInput} onChange={(e) => setLimit(e.target.value)}>
         <option value="5">5</option>
         <option value="10">10</option>
         <option value="25">25</option>
@@ -81,10 +82,13 @@ function Todos() {
         <option value="40">40</option>
       </select>
       <button 
+      className={styles.addBtn}
       disabled={totalCount < page * limit}
       onClick={()=> setPage(page+1)}> + </button>
       
       <h2>Page No: {page}</h2>
+      </div>
+      
     </div>
   );
 }
